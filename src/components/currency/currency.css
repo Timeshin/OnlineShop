@@ -1,0 +1,42 @@
+.drop-down-currency {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    font-weight: 500;
+}
+
+.current-value {
+    position: relative;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+.arrow {
+    position: absolute;
+    top: 5px;
+    width: 6px;
+    height: 6px;
+    border: solid black;
+    border-width: 0 1px 1px 0;
+    transform: rotate(-135deg);
+    transition: .2s all;
+}
+
+.active .arrow {
+    transform: rotate(45deg);
+}
+
+.drop-down-content {
+    height: 0;
+    overflow: hidden;
+}
+
+.active .drop-down-content {
+    overflow: visible;
+}
+
+.drop-down-content-value {
+    cursor: pointer;
+    margin-top: 21px;
+}

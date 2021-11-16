@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import cart from "../../assets/cart.png"
 
 class ShoppingCar extends Component {
     render() {
-        return <i className="fas fa-shopping-cart"></i>
+        return <img src={cart} alt="shoppingCartImg" />
     }
 }
 

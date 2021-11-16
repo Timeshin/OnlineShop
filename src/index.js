@@ -9,7 +9,7 @@ import { Provider as UrqlProvider } from 'urql';
 import client from "./client"
 
 ReactDOM.render(
-  <UrqlProvider client={client}>
+  <UrqlProvider value={client}>
     <Provider store={store}>
       <Router>
         <App />

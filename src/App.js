@@ -14,7 +14,7 @@ class App extends Component {
       <Suspense fallback={<span>Loading...</span>}>
         <Header/>
         <Switch>
-          <Route path="/:name" component={ProductsList} />
+          <Route path="/:name" exact component={ProductsList} />
         </Switch>
       </Suspense>
     )

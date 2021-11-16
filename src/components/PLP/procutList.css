@@ -1,7 +1,27 @@
-.red {
-    color: red
+.products {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 80px 0;
 }
 
-.blue {
-    color: blue
+.products-content {
+    width: 1150px;
+}
+
+.category-name {
+    font-size: 42px;
+    font-weight: 400;
+}
+
+.category-name p::first-letter {
+    text-transform: uppercase;
+}
+
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }

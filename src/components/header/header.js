@@ -9,15 +9,17 @@ export class Header extends Component {
     render() {
         return (
             <header>
-                <nav className="header-navigation">
-                    <CategoriesList/>
-                </nav>
-                <div className="logo">
-                    <img src="Grouplogo.svg" alt="img" />
-                </div>
-                <div className="end-header">
-                    <CurrencyDropDown/>
-                    <ShoppingCar/>
+                <div className="header-content">
+                    <nav className="header-navigation">
+                        <CategoriesList/>
+                    </nav>
+                    <div className="logo">
+                        <img src="Grouplogo.svg" alt="img" />
+                    </div>
+                    <div className="end-header">
+                        <CurrencyDropDown/>
+                        <ShoppingCar/>
+                    </div>
                 </div>
             </header>
         )

@@ -35,7 +35,7 @@ class CurrencyDropDown extends Component {
                         onClick={() => this.setState({activeMenu: !this.state.activeMenu})}>
                     <span style={{paddingRight: "10px"}}>
                         {
-                            this.props.products.currentCurrency
+                            this.currencyIcons[this.props.products.currentCurrency]
                         }
                     </span>
                     <span className="arrow"></span>
@@ -48,7 +48,7 @@ class CurrencyDropDown extends Component {
                                     className="drop-down-content-value"
                                     key={id}
                                     onClick={() => {
-                                        this.props.setCurrentCurrency(this.currencyIcons[id])
+                                        this.props.setCurrentCurrency(id)
                                         this.setState({
                                             activeMenu: false
                                         })

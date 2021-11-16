@@ -8,6 +8,7 @@ const GET_CATEGORIES = gql`
             id
             name
             inStock
+            gallery
             description
             category
             attributes {

@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit"
 
 const initialState = {
-    currentCurrency: "$",
+    currentCurrency: 0,
 }
 
 const setDataSlice = createSlice({

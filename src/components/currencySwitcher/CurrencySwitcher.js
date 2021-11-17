@@ -1,24 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getCurrencies } from '../../services/services';
-import { getAllCurrencies } from '../../reducer/getDataSlice';
-import { setCurrentCurrency } from '../../reducer/setDataSlice';
+import { getAllCurrencies, setCurrentCurrencyId, setCurrentIcon } from '../../redux/actions/actions';
 
 import "./currency.css"
 
-class CurrencyDropDown extends Component {
+class CurrencySwitcher extends Component {
 
     constructor(props) {
         super(props)
         this.state = {
             activeMenu: false
-        }
-        this.currencyIcons = {
-            0: "$",
-            1: "€",
-            2: "¥",
-            3: "£",
-            4: "₽"
         }
     }
 
@@ -28,14 +20,15 @@ class CurrencyDropDown extends Component {
     }
 
     render() {
+        
         return (
             <div className={this.state.activeMenu ? "drop-down-currency active" : "drop-down-currency"}>
                 <div
                     className={"current-value"}
-                        onClick={() => this.setState({activeMenu: !this.state.activeMenu})}>
+                    onClick={() => this.setState({activeMenu: !this.state.activeMenu})}>
                     <span style={{paddingRight: "10px"}}>
                         {
-                            this.currencyIcons[this.props.products.currentCurrency]
+                            this.props.products.currentIcon
                         }
                     </span>
                     <span className="arrow"></span>
@@ -48,13 +41,14 @@ class CurrencyDropDown extends Component {
                                     className="drop-down-content-value"
                                     key={id}
                                     onClick={() => {
-                                        this.props.setCurrentCurrency(id)
+                                        this.props.setCurrentCurrencyId(id)
+                                        this.props.setCurrentIcon(this.props.products.currencyIcons[id])
                                         this.setState({
                                             activeMenu: false
                                         })
                                     }}
                                 >
-                                    {this.currencyIcons[id]} {item}
+                                    {this.props.products.currencyIcons[id]} {item}
                                 </div>
                             )
                         })
@@ -72,7 +66,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = {
     getAllCurrencies,
-    setCurrentCurrency
+    setCurrentCurrencyId,
+    setCurrentIcon
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(CurrencyDropDown);
+export default connect(mapStateToProps, mapDispatchToProps)(CurrencySwitcher);

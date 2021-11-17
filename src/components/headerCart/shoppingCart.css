@@ -1,0 +1,29 @@
+.header-shopping-cart {
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.shopping-counter {
+    position: absolute;
+    color: #fff;
+    width: 20px;
+    height: 20px;
+    top: -10px;
+    right: -10px;
+    background: #000;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3px;
+    font-weight: 700;
+    z-index: 10;
+}
+
+.shopping-counter span {
+    font-family: sans-serif;
+    font-size: 14px;
+}

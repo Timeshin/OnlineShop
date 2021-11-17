@@ -12,16 +12,13 @@
 }
 
 .category-name {
+    text-transform: uppercase;
     font-size: 42px;
     font-weight: 400;
 }
 
-.category-name p::first-letter {
-    text-transform: uppercase;
-}
-
 .content {
     display: flex;
-    flex-wrap: wrap;
     justify-content: space-around;
+    flex-wrap: wrap;
 }

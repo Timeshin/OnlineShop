@@ -31,6 +31,34 @@ const GET_CATEGORIES = gql`
     }
 `
 
+const GET_PRODUCT = gql`
+    query Product($id: String!) {
+        product(id: $id) {
+            id
+            name
+            inStock
+            gallery
+            description
+            category
+            attributes {
+                id
+                name
+                type
+                items {
+                    displayValue
+                    value
+                    id
+                }
+            }
+            prices {
+                currency
+                amount
+            }
+            brand
+        }
+    }
+`
+
 const GET_CURRENCIES = gql`
     query Currencies {
         currencies
@@ -39,5 +67,6 @@ const GET_CURRENCIES = gql`
 
 export {
     GET_CATEGORIES,
-    GET_CURRENCIES
+    GET_CURRENCIES,
+    GET_PRODUCT
 }

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Link from '../navLinks/NavLink'
 import { getCategories } from '../../services/services' 
-import { getAllProducts } from "../../reducer/getDataSlice"
+import { getAllProducts } from "../../redux/actions/actions"
 
 export class CategoriesList extends Component {
     async componentDidMount() {

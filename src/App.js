@@ -1,12 +1,11 @@
-import React, { Component, lazy, Suspense } from 'react';
+import React, { Component, Suspense } from 'react';
 import {
   Route,
   Switch,
   withRouter
 } from "react-router-dom";
-import Header from './components/header/header';
-
-const ProductsList = lazy(() => import('./components/PLP/ProductsList'))
+import Header from './components/Header';
+import { routes } from "./components/routes"
 
 class App extends Component {
   render() {
@@ -14,7 +13,11 @@ class App extends Component {
       <Suspense fallback={<span>Loading...</span>}>
         <Header/>
         <Switch>
-          <Route path="/:name" exact component={ProductsList} />
+          {
+            routes.map(({path, component}) => 
+              <Route key={path} path={path} component={component} />
+            )
+          }
         </Switch>
       </Suspense>
     )

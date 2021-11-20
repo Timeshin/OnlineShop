@@ -1,4 +1,4 @@
-import { GET_CURRENCIES, GET_CATEGORIES, GET_PRODUCT } from '../query/query';
+import { GET_CURRENCIES, GET_CATEGORIES, GET_PRODUCT, GET_CATEGORY } from '../query/query';
 import client from '../client';
 
 
@@ -20,8 +20,15 @@ function getProduct(id) {
     .then(result => result.data)
 }
 
+function getCategoryByInput(input) {
+    return client.query(GET_CATEGORY, { input: {title: input} })
+    .toPromise()
+    .then(result => result.data)
+}
+
 export {
     getCategories,
     getCurrencies,
-    getProduct
+    getProduct,
+    getCategoryByInput
 }

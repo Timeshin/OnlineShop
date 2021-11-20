@@ -1,0 +1,121 @@
+.product-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.product {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.product-characteristics {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.product-title {
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.product-price {
+    font-weight: 500;
+    font-size: 16px;
+    margin-top: 5px;
+}
+
+.product-attributes {
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+}
+
+.product-attributes .options,
+.product-attributes .color-attribute {
+    cursor: pointer;
+    font-size: 14px;
+    margin-right: 8px;
+    padding: 7px;
+    font-weight: 400;
+    border: 2px solid rgba(29, 31, 34, 1);
+}
+
+.product .product-attributes .options.selected {
+    pointer-events: none;
+    color: rgba(166, 166, 166, 1);
+    background: rgba(166, 166, 166, 0.2);
+    border-color: rgba(166, 166, 166, 1);
+}
+
+.plus,
+.minus {
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 100;
+    padding: 7px;
+    font-weight: 400;
+    border: 2px solid rgba(29, 31, 34, 1);
+}
+
+.product-count-content {
+    text-align: center;
+    width: 100%;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.product-attributes-content {
+    display: flex;
+    margin-top: 5px;
+}
+
+.color-attribute {
+    border-radius: 50%; 
+    padding: 10px;
+    pointer-events: auto
+}
+
+.color-attribute.selected {
+    opacity: .3;
+    pointer-events: none
+}
+
+.product-end {
+    display: flex;
+}
+
+.product-qty {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 10px;
+}
+
+.product-counter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    min-height: 140px;
+}
+
+.product-counter button {
+    background: transparent;
+}
+
+.product-images {
+    width: 105px;
+    height: 100%;
+    overflow: hidden;
+    margin-left: 10px;
+}
+
+.product-images img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}

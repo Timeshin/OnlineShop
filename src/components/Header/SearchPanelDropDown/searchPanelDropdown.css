@@ -1,0 +1,25 @@
+.search-panel-dropdown {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    top: calc(100% + .25rem);
+    background: #fff;
+}
+
+.search-panel-dropdown-content {
+    box-shadow: 0px 10px 35px rgba(168, 172, 176, 0.19);
+}
+
+.search-panel-dropdown-content p{
+    display: none;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.search-panel-dropdown-content p.active {
+    display: block
+}
+
+.search-panel-dropdown p:hover {
+    background: rgba(128, 128, 128, 0.493);
+}

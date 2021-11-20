@@ -65,8 +65,40 @@ const GET_CURRENCIES = gql`
     }
 `
 
+const GET_CATEGORY = gql`
+    query CategoryInput($input: CategoryInput) {
+        category(input: $input) {
+            name
+            products {
+                            id
+            name
+            inStock
+            gallery
+            description
+            category
+            attributes {
+                id
+                name
+                type
+                items {
+                    displayValue
+                    value
+                    id
+                }
+            }
+            prices {
+                currency
+                amount
+            }
+                brand
+                }
+            }
+    }
+`
+
 export {
     GET_CATEGORIES,
     GET_CURRENCIES,
-    GET_PRODUCT
+    GET_PRODUCT,
+    GET_CATEGORY
 }

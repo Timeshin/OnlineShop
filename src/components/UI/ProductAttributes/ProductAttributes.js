@@ -53,7 +53,8 @@ class ProductAttributes extends Component {
                                     active: id
                                 })
                                 this.addAttribute(attribute)
-                                this.props.setAttributes({key: this.props.attributeName.name, value: attribute.value})
+                                if(this.props.allowSetAttribute)
+                                return this.props.setAttributes({key: this.props.attributeName.name, value: attribute.value})
                             }}
                             style={{background: attribute.value}}/>
                     })
@@ -74,7 +75,8 @@ class ProductAttributes extends Component {
                                     active: id
                                 })
                                 e.target.className = "options selected"
-                                this.props.setAttributes({key: this.props.attributeName.name, value: attribute.value})
+                                if(this.props.allowSetAttribute)
+                                return this.props.setAttributes({key: this.props.attributeName.name, value: attribute.value})
                                 this.addAttribute(attribute)
                             }}
                         >

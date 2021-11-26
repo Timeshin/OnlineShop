@@ -92,6 +92,11 @@
     border: none;
 }
 
+.add-btn:disabled {
+    cursor: not-allowed;
+    opacity: .5;
+}
+
 .product-page-description {
     width: 300px;
     margin-top: 40px;

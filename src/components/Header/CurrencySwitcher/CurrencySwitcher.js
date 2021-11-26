@@ -20,13 +20,13 @@ class CurrencySwitcher extends Component {
     }
 
     render() {
-        
         return (
             <div className={this.state.activeMenu ? "drop-down-currency active" : "drop-down-currency"}>
                 <div
                     className="current-value"
-                    onClick={() => this.setState({activeMenu: !this.state.activeMenu})}>
-                    <span style={{paddingRight: "10px"}}>
+                    onMouseEnter={() => this.setState({activeMenu: true})}
+                    onMouseLeave={() => this.setState({activeMenu: false})}>
+                    <span>
                         {
                             this.props.products.currentIcon
                         }

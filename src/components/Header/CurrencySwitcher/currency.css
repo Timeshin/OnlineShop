@@ -14,6 +14,10 @@
     margin-right: 20px;
 }
 
+.current-value span:first-child {
+    padding-right: 10px;
+}
+
 .arrow {
     position: absolute;
     top: 5px;
@@ -32,6 +36,7 @@
 .drop-down-content {
     position: absolute;
     bottom: -265px;
+    padding-top: 10px;
     left: -20px;
     display: none;
     width: 115px;
@@ -47,4 +52,8 @@
 .drop-down-content-value {
     cursor: pointer;
     padding: 20px 20px 10px 20px;
+}
+
+.drop-down-content-value:hover {
+    background: rgba(197, 194, 194, 0.562);
 }

@@ -51,6 +51,7 @@ class ProductsList extends PureComponent {
                                         return arr.map(item =>
                                             <Card
                                             key={item.id}
+                                            brand={item.brand}
                                             name={item.name}
                                             id={item.id}
                                             inStock={item.inStock}

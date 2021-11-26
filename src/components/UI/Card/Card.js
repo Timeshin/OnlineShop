@@ -17,7 +17,7 @@ class Card extends PureComponent {
         return (
             <div 
                 onClick={async () => {
-                    if(this.props.inStock) this.props.history.push(`${this.props.location.pathname}/${this.props.id}`)
+                    this.props.history.push(`${this.props.location.pathname}/${this.props.id}`)
                     this.props.setCurrentProduct(await getProduct(this.props.id))
                 }}
                 className={this.props.inStock ? "card" : "card un-stock-card"}>
@@ -28,19 +28,14 @@ class Card extends PureComponent {
                     <img src={this.props.img[0]} alt="img" />
                     {
                         this.props.inStock && (
-                            <div
-                                onClick={async (e) => {
-                                    e.stopPropagation()
-                                    this.props.setProduct(await getProduct(this.props.id))
-                                }}
-                                className="shopping-cart-card">
+                            <div className="shopping-cart-card">
                                 <img src={ShoppingCart} alt="whiteCart" />
                             </div>
                         )
                     }
                 </div>
                 <div className="card-content">
-                    <div className="card-name">{this.props.name}</div>
+                    <div className="card-name">{this.props.brand} {this.props.name}</div>
                     <div className="card-price">
                         {this.props.currentIcon}
                         {this.setPrice()}

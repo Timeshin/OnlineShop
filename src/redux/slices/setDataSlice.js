@@ -31,8 +31,8 @@ const setDataSlice = createSlice({
             state.allProducts = action.payload
         },
         setProduct: (state, action) => {
-            const checkItemInArray = state.selectedProducts.findIndex(item => item.id === action.payload.product.id)
-            const productItem = state.selectedProducts.find(item => item.id === action.payload.product.id)
+            const checkItemInArray = state.selectedProducts.findIndex(item => item.attributes.every(key => item[key.id] === action.payload.product[key.id]))
+            const productItem = state.selectedProducts.find(item => item.attributes.every(key => item[key.id] === action.payload.product[key.id]))
 
             if(checkItemInArray === -1) {
                 state.selectedProducts.push({...action.payload.product, qty: 1})
@@ -41,24 +41,25 @@ const setDataSlice = createSlice({
             }
         },
         deleteOneProduct: (state, action) => {
-            const productItem = state.selectedProducts.find(item => item.id === action.payload.id)
+            const productItem = state.selectedProducts.find(item => item.attributes.every(key => item[key.id] === action.payload[key.id]))
+            const productItemIndex = state.selectedProducts.findIndex(item => item.attributes.every(key => item[key.id] === action.payload[key.id]))
 
             productItem.qty = productItem.qty - 1
 
             if(productItem.qty === 0) {
-                state.selectedProducts = state.selectedProducts.filter(item => item.id !== productItem.id)
+                state.selectedProducts.splice(productItemIndex, 1)
             }
         },
         addOneProduct: (state, action) => {
-            const productItem = state.selectedProducts.find(item => item.id === action.payload.id)
-                
+            const productItem = state.selectedProducts.find(item => item.attributes.every(key => item[key.id] === action.payload[key.id]))
+
             productItem.qty = productItem.qty + 1
         },
         setCurrentProduct: (state, action) => {
             state.selectedProduct = action.payload
         },
         addAttributes: (state, action) => {
-            const elem = state.selectedProducts.find(item => item.id === action.payload.element.id)
+            const elem = state.selectedProducts.find(item => item.attributes.every(key => item[key.id] === action.payload.element[key.id]))  
             
             if(state.selectedProducts.length > 0 && elem) {
                 elem[action.payload.key] = action.payload.value

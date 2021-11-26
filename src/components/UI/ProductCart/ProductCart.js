@@ -10,7 +10,7 @@ class ProductCart extends Component {
     render() {
         if(!this.props.selectedProducts.length) {
             return (
-                <p style={{padding: "20px"}}>shopping cart is empty</p>
+                <p className="empty-message">shopping cart is empty</p>
             )
         }
         return (
@@ -29,7 +29,11 @@ class ProductCart extends Component {
                                 </div>
                                 {
                                     item.attributes.map((attributeName, id) => 
-                                        <ProductAttributes key={id} attributeName={attributeName} elem={item} />
+                                        <ProductAttributes
+                                        allowSetAttribute={false}
+                                        key={id} 
+                                        attributeName={attributeName} 
+                                        elem={item} />
                                     )
                                 }
                             </div>

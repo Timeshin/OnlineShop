@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import ProductAttributes from '../../UI/ProductAttributes/ProductAttributes';
-import { setProduct, clearAttributes } from '../../../redux/actions/actions';
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import ProductAttributes from '../../UI/ProductAttributes/ProductAttributes'
+import { setProduct, clearAttributes } from '../../../redux/actions/actions'
+import { Markup } from 'interweave'
 
 import "./productPage.css"
 
@@ -50,6 +51,7 @@ class ProductPage extends Component {
                             {
                                 this.props.selectedProduct.product.attributes.map((item, id) => 
                                     <ProductAttributes
+                                    allowSetAttribute={true}
                                     key={id}
                                     attributeName={item}
                                     elem={this.props.selectedProduct.product}
@@ -63,14 +65,23 @@ class ProductPage extends Component {
                                 {this.props.selectedProduct.product.prices[this.props.currentCurrencyId].amount}
                                 </p>
                             </div>
-                            <button onClick={() => {
+                            <button 
+                            disabled={
+                                this.props.selectedProduct.product.inStock &&
+                                this.props.selectedProduct.product.attributes.length === Object.keys(this.props.attribute).length
+                                ? 
+                                false
+                                : 
+                                true
+                            }
+                            onClick={() => {
                                 this.props.setProduct({product: {...this.props.selectedProduct.product, ...this.props.attribute}})
                             }} className="add-btn">
                                 add to cart
                             </button>
-                            <div className="product-page-description"
-                                dangerouslySetInnerHTML={{__html: this.props.selectedProduct.product.description}}
-                            />
+                            <div className="product-page-description">
+                                <Markup content={this.props.selectedProduct.product.description} />
+                            </div>
                         </div>
                     </div>
                 </div>   

@@ -119,3 +119,7 @@
     height: 100%;
     object-fit: contain;
 }
+
+.empty-message {
+    padding: 20px
+}

@@ -24,11 +24,12 @@ class SearchPanel extends Component {
                     <SearchPanelDropdown
                     input={this.state.input}
                     active={this.state.active}
-                    setActive={() => this.setState({ active: false })} />
+                    setActive={() => this.setState({ active: false, input: "" })} />
                 </div>
                 <span onClick={(e) => {
                     this.setState({
-                        active: !this.state.active
+                        active: !this.state.active,
+                        input: ""
                     })
                 }} className="search">
                     <i className="fas fa-search"></i>

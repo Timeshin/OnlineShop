@@ -31,8 +31,14 @@ const setDataSlice = createSlice({
             state.allProducts = action.payload
         },
         setProduct: (state, action) => {
-            const checkItemInArray = state.selectedProducts.findIndex(item => item.attributes.every(key => item[key.id] === action.payload.product[key.id]))
-            const productItem = state.selectedProducts.find(item => item.attributes.every(key => item[key.id] === action.payload.product[key.id]))
+            const checkItemInArray = state.selectedProducts.findIndex(
+                item => item.attributes.every(key => item[key.id] === action.payload.product[key.id]) && 
+                item.id === action.payload.product.id
+            )
+            const productItem = state.selectedProducts.find(
+                item => item.attributes.every(key => item[key.id] === action.payload.product[key.id]) && 
+                item.id === action.payload.product.id
+                )
 
             if(checkItemInArray === -1) {
                 state.selectedProducts.push({...action.payload.product, qty: 1})
@@ -41,8 +47,14 @@ const setDataSlice = createSlice({
             }
         },
         deleteOneProduct: (state, action) => {
-            const productItem = state.selectedProducts.find(item => item.attributes.every(key => item[key.id] === action.payload[key.id]))
-            const productItemIndex = state.selectedProducts.findIndex(item => item.attributes.every(key => item[key.id] === action.payload[key.id]))
+            const productItem = state.selectedProducts.find(
+                item => item.attributes.every(key => item[key.id] === action.payload[key.id]) &&
+                item.id === action.payload.id
+                )
+            const productItemIndex = state.selectedProducts.findIndex(
+                item => item.attributes.every(key => item[key.id] === action.payload[key.id]) &&
+                item.id === action.payload.id
+                )
 
             productItem.qty = productItem.qty - 1
 
@@ -51,7 +63,10 @@ const setDataSlice = createSlice({
             }
         },
         addOneProduct: (state, action) => {
-            const productItem = state.selectedProducts.find(item => item.attributes.every(key => item[key.id] === action.payload[key.id]))
+            const productItem = state.selectedProducts.find(
+                item => item.attributes.every(key => item[key.id] === action.payload[key.id]) &&
+                item.id === action.payload.id
+                )
 
             productItem.qty = productItem.qty + 1
         },
@@ -59,7 +74,11 @@ const setDataSlice = createSlice({
             state.selectedProduct = action.payload
         },
         addAttributes: (state, action) => {
-            const elem = state.selectedProducts.find(item => item.attributes.every(key => item[key.id] === action.payload.element[key.id]))  
+            console.log(action.payload)
+            const elem = state.selectedProducts.find(
+                item => item.attributes.every(key => item[key.id] === action.payload.element[key.id]) &&
+                item.id === action.payload.element.id
+                )
             
             if(state.selectedProducts.length > 0 && elem) {
                 elem[action.payload.key] = action.payload.value
@@ -69,7 +88,6 @@ const setDataSlice = createSlice({
             if(!Object.keys(state.attribute).find(key => state.attribute[key] === action.payload.key)) {
                 state.attribute[action.payload.key] = action.payload.value
             }
-             
         },
         clearAttributes: (state) => {
             state.attribute = {}

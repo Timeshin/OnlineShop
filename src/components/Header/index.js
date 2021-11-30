@@ -1,6 +1,6 @@
 import React, { Component, createRef } from 'react'
 import CategoriesList from './Categories/CategoriesList'
-import CurrencySwitcher from './CurrencySwitcher/CurrencySwitcher'
+import CurrenciesSwitcher from './CurrenciesSwitcher/CurrenciesSwitcher'
 import ShoppingCart from "./HeaderCart/ShoppingCart"
 import CartDropdown from './CartDropdown/CartDropdown';
 
@@ -40,7 +40,7 @@ export class Header extends Component {
                         </div>
                         <div className="end-header">
                             <SearchPanel />
-                            <CurrencySwitcher active={this.state.activeMenu} />
+                            <CurrenciesSwitcher active={this.state.activeMenu} />
                             <ShoppingCart ref={this.shoppingCartRef} onClick={() => this.setState({activeMenu: !this.state.activeMenu})} />
                         </div>
                     </div>

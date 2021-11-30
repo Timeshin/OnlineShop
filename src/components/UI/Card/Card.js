@@ -28,7 +28,13 @@ class Card extends PureComponent {
                     <img src={this.props.img[0]} alt="img" />
                     {
                         this.props.inStock && (
-                            <div className="shopping-cart-card">
+                            <div
+                                onClick={async (e) => {
+                                    e.stopPropagation()
+                                    this.props.setProduct(await getProduct(this.props.id))
+                                }}
+                                className="shopping-cart-card"
+                            >
                                 <img src={ShoppingCart} alt="whiteCart" />
                             </div>
                         )

@@ -65,20 +65,25 @@ class ProductPage extends Component {
                                 {this.props.selectedProduct.product.prices[this.props.currentCurrencyId].amount}
                                 </p>
                             </div>
-                            <button 
-                            disabled={
-                                this.props.selectedProduct.product.inStock &&
-                                this.props.selectedProduct.product.attributes.length === Object.keys(this.props.attribute).length
-                                ? 
-                                false
-                                : 
-                                true
+                            {
+                                this.props.selectedProduct.product.inStock ?
+                                    <button 
+                                    disabled={
+                                        this.props.selectedProduct.product.attributes.length === Object.keys(this.props.attribute).length
+                                        ?
+                                        false
+                                        :
+                                        true
+                                    }
+                                    onClick={() => {
+                                        this.props.setProduct({product: {...this.props.selectedProduct.product, ...this.props.attribute}})
+                                    }} className="add-btn"
+                                    >
+                                        add to cart
+                                    </button>
+                                    :
+                                    <h2 className="product-page-stock">OUT OF STOCK</h2>
                             }
-                            onClick={() => {
-                                this.props.setProduct({product: {...this.props.selectedProduct.product, ...this.props.attribute}})
-                            }} className="add-btn">
-                                add to cart
-                            </button>
                             <div className="product-page-description">
                                 <Markup content={this.props.selectedProduct.product.description} />
                             </div>

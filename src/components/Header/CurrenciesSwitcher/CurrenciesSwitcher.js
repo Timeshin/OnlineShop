@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { getCurrencies } from '../../../services/services';
 import { getAllCurrencies, setCurrentCurrencyId, setCurrentIcon } from '../../../redux/actions/actions';
 
-import "./currency.css"
+import "./currencies.css"
 
 class CurrencySwitcher extends Component {
 
@@ -21,11 +21,11 @@ class CurrencySwitcher extends Component {
 
     render() {
         return (
-            <div className={this.state.activeMenu ? "drop-down-currency active" : "drop-down-currency"}>
-                <div
-                    className="current-value"
-                    onMouseEnter={() => this.setState({activeMenu: true})}
-                    onMouseLeave={() => this.setState({activeMenu: false})}>
+            <div
+            onMouseEnter={() => this.setState({activeMenu: true})}
+            onMouseLeave={() => this.setState({activeMenu: false})}
+            className={this.state.activeMenu ? "drop-down-currency active" : "drop-down-currency"}>
+                <div className="current-value">
                     <span>
                         {
                             this.props.products.currentIcon

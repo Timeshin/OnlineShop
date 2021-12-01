@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import ProductAttributes from '../../UI/ProductAttributes/ProductAttributes'
 import { setProduct, clearAttributes } from '../../../redux/actions/actions'
 import { Markup } from 'interweave'
+import AddToCardButton from '../../UI/AddToCardButton/AddToCardButton'
 
 import "./productPage.css"
 
@@ -65,25 +66,7 @@ class ProductPage extends Component {
                                 {this.props.selectedProduct.product.prices[this.props.currentCurrencyId].amount}
                                 </p>
                             </div>
-                            {
-                                this.props.selectedProduct.product.inStock ?
-                                    <button 
-                                    disabled={
-                                        this.props.selectedProduct.product.attributes.length === Object.keys(this.props.attribute).length
-                                        ?
-                                        false
-                                        :
-                                        true
-                                    }
-                                    onClick={() => {
-                                        this.props.setProduct({product: {...this.props.selectedProduct.product, ...this.props.attribute}})
-                                    }} className="add-btn"
-                                    >
-                                        add to cart
-                                    </button>
-                                    :
-                                    <h2 className="product-page-stock">OUT OF STOCK</h2>
-                            }
+                            <AddToCardButton/>
                             <div className="product-page-description">
                                 <Markup content={this.props.selectedProduct.product.description} />
                             </div>

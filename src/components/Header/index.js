@@ -1,4 +1,4 @@
-import React, { Component, createRef } from 'react'
+import React, { PureComponent, createRef } from 'react'
 import CategoriesList from './Categories/CategoriesList'
 import CurrenciesSwitcher from './CurrenciesSwitcher/CurrenciesSwitcher'
 import ShoppingCart from "./HeaderCart/ShoppingCart"
@@ -7,7 +7,7 @@ import CartDropdown from './CartDropdown/CartDropdown';
 import "./index.css"
 import SearchPanel from './SearchPanel/SearchPanel';
 
-export class Header extends Component {
+export class Header extends PureComponent {
     constructor(props){
         super(props)
         this.state = {

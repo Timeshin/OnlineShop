@@ -1,0 +1,24 @@
+.attributes-popup-wrapper {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background: rgba(57, 55, 72, 0.22);
+    z-index: 10000;
+}
+
+.attributes-popup {
+    background: #fff;
+    padding: 20px;
+}
+
+.attributes-popup .color-attribute.selected {
+    opacity: .5;
+}
+
+.attributes-popup .options.selected {
+    background: #000;
+    color: #fff;
+}

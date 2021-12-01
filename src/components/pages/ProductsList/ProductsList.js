@@ -46,9 +46,9 @@ class ProductsList extends PureComponent {
                     {
                         <div className="content">
                             {
-                                this.state.products.map(arr => {
-                                    if(Array.isArray(arr)) {
-                                        return arr.map(item =>
+                                this.state.products.map(product => {
+                                    if(Array.isArray(product)) {
+                                        return product.map(item =>
                                             <Card
                                             key={item.id}
                                             brand={item.brand}
@@ -59,14 +59,14 @@ class ProductsList extends PureComponent {
                                             price={item.prices} />
                                         )
                                     }
-                                    if(typeof arr === "object") {
+                                    if(typeof product === "object") {
                                         return <Card
-                                        key={arr.id}
-                                        name={arr.name}
-                                        id={arr.id}
-                                        inStock={arr.inStock}
-                                        img={arr.gallery}
-                                        price={arr.prices} />
+                                        key={product.id}
+                                        name={product.name}
+                                        id={product.id}
+                                        inStock={product.inStock}
+                                        img={product.gallery}
+                                        price={product.prices} />
                                     }
                                     return null
                                 })

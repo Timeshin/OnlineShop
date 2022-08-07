@@ -6,4 +6,4 @@ Run project
 
 ### `npm start`
 
-If you want to run project with api, use this - https://github.com/XGriFeX/API
+If you want to run project with api, use this - https://github.com/Timeshin/API
